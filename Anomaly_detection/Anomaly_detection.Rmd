@@ -1,7 +1,5 @@
 ---
 title: "Supervised vs. Unsupervised Anomaly Detection"
-author: "Biljana Simonovikj"
-date: "21/04/2020"
 output: 
   html_document:
     code_folding: hide
