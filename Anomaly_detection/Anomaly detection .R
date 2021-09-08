@@ -1,7 +1,6 @@
-# Supervised and Unsupervised Anomaly Detection
+# Supervised vs. Unsupervised Anomaly Detection
 #******************************************
-# Biljana Simonovikj
-# Due sate: 06/05/2020
+
 
 # Load Packages ***************************
 
@@ -21,14 +20,11 @@
   library("class")
 
 
-
-
 # Activity 1: Principal Component Analysis
 #******************************************
 # Read the data from csv.file into R environment:
 #=====================================================================
-Stamps <- read.table("/Users/Biljana/Data Mining_1/Ass 3/Stamps_withoutdupl_09.csv",
-                     header = FALSE, sep = ",", dec = ".") # read the csv file into a dataframe
+Stamps <- read.table("path", header = FALSE, sep = ",", dec = ".") # read the csv file into a dataframe
 colnames(Stamps) # display column names
 head(Stamps) # show first six cases
 summary(Stamps) # 9 Predictors (V1 to V9) and class labels (V10)
@@ -41,11 +37,11 @@ table(PB_Class) # how many observations are genuine or forged
 
 #In this first activity, you are asked to:
 # 1. Perform Principal Component Analysis (PCA) on the Stamps data in the 9-dimensional space of the
-#numerical predictors ( PB_Predictors ), and show the Proportion of Variance Explained (PVE) for each
-#of the nine resulting principal components. Plot the accumulated sum of PVE for the first m
-#components, as a function of m, and discuss the result: (a) How many components do we need to
-#explain 90% or more of the total variance? (b) How much of the total variance is explained by the first
-#three components?
+# numerical predictors ( PB_Predictors ), and show the Proportion of Variance Explained (PVE) for each
+# of the nine resulting principal components. Plot the accumulated sum of PVE for the first m
+# components, as a function of m, and discuss the result: (a) How many components do we need to
+# explain 90% or more of the total variance? (b) How much of the total variance is explained by the first
+# three components?
 
 # Applying PCA to 9-dimensional space of predictor variables:
 #===========================================================
@@ -79,7 +75,7 @@ ggplot(df_eig,aes(x = Row_Id,y = Variance)) +
   theme_bw(base_size = 12) +
   theme(legend.position = "none")
 
-# # Display of Accumulated Sum of PVE for each of the nine PCA components with geom_bar() from ggplot2 up to cut off at 90th%:
+# Display of Accumulated Sum of PVE for each of the nine PCA components with geom_bar() from ggplot2 up to cut off at 90th%:
 #==============================================================================================================================
 ggplot(df_eig,aes(x = Row_Id,y = CumPVE, group = 1)) +
   geom_bar(stat = "identity",aes(fill = Row_Id),color = "black") +
